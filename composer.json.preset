@@ -1,6 +1,6 @@
 {
     "name": "2zqa/wereldbot-telegram",
-    "description": "Telegram bot die informatie over de Nederlandse minecraftserver Wereldbouw stuurt",
+    "description": "Telegram bot for the Dutch Minecraft server, Wereldbouw.",
     "type": "project",
     "require": {
         "irazasyed/telegram-bot-sdk": "^3.4",
@@ -21,5 +21,8 @@
             "name": "2zqa",
             "homepage": "https://github.com/2zqa"
         }
-    ]
+    ],
+    "scripts": {
+        "dev": "php -S localhost:8080 -t public &>/dev/null & expose share localhost:8080"
+    }
 }
