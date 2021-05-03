@@ -29,10 +29,8 @@ if exposeSubdomain:
 	with open("composer.json.preset", "r") as composerPresetFile:
 		composerDict = json.load(composerPresetFile)
 
-		if not "scripts" in composerDict:
-			composerDict["scripts"] = dict()
-
-		# Add or replace dev command
+		# Replace dev command
+		# command runs a php webserver with the public-folder as root, and then exposes it to the internet using expose
 		devCommand = "php -S localhost:8080 -t public &>/dev/null & expose share localhost:8080 --subdomain=" + exposeSubdomain
 		composerDict["scripts"]["dev"] = devCommand
 
@@ -70,6 +68,6 @@ if runSetup.lower() != 'n':
 
 # The End
 if exposeSubdomain and runSetup.lower != 'n':
-	print("\nDone! You can now run `composer dev` to start the webserver.")
+	print("\nDone! You can now run `composer run dev` to start the webserver.")
 else:
 	print("\nDone!")
