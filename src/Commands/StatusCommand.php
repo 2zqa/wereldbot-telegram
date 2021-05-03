@@ -10,41 +10,35 @@ class StatusCommand extends Command
     protected $name = 'status';
     const HOSTNAME = 'mc.marijnk.nl';
 
-    private function response() {
+    private function getMessage() {
+        $query = MCQuery::check(self::HOSTNAME);
 
+        # Check online status
+        if (!$query->online) {
+            return "Wereldbouw is op dit moment helaas <b>offline</b>. Tip: check de discord voor actuele info.";
+        }
+
+        # MOTD
+        $response = "<i>" . $query->motd . "</i>" . "\n\n" . "Wereldbouw is op dit moment <b>online</b>." . "\n";
+
+        # Playerlist
+        if ($query->players == 0) {
+            $response .= "Er zijn op dit moment geen spelers ingelogd.";
+            return $response;
+        }
+
+        $response .= "Er zijn op dit moment " . $query->players . " spelers ingelogd:" . "\n";
+        foreach ($query->player_list as $playername) {
+            $response .= " • " . $playername . "\n";
+        }
+
+        return $response;
     }
 
     public function handle() {
-
-        $result=MCQuery::check(self::HOSTNAME);
-
-        $response = "";
-
-        if ($result->online) {
-            $response .= "_" . $result->motd . "_" . PHP_EOL . PHP_EOL;
-        }
-
-        $response .= "Wereldbouw is op dit moment ";
-        
-        if(!$result->online) {
-            $response .= "helaas *offline*. Tip: check discord voor actuele info.";
-        } else {
-            $response .= "*online*." . PHP_EOL . "Er zijn nu ";            
-            if($result->players > 0) {
-                $response .= $result->players . " spelers ingelogd:" . "\n";
-                foreach($result->player_list as $playername) {
-                    $response .= " • " . str_replace("_", "\_", $playername) . "\n";
-                }
-            } else {
-                $response .= "geen spelers ingelogd.";
-            }
-            
-            
-        }
-
         $this->replyWithMessage([
-            'text' => $response,
-            'parse_mode'=>'markdown'
+            'text' => $this->getMessage(),
+            'parse_mode' => 'html'
         ]);
     }
 }
