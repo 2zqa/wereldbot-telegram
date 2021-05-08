@@ -13,14 +13,13 @@ Simple Telegram bot written in PHP. Can show online players, MOTD and online sta
 * PHP 7.2+
 * [Composer](https://getcomposer.org/)
 * (Recommended) [Expose](https://beyondco.de/docs/expose/introduction)
-* (Optional) Python 3.5+ (for install script)
 
 ### Installing
 
 **Using install script**
 
 * Clone this repository
-* Run `projectsetup.py`
+* Run `php projectsetup.php`
 
 **Manually**
 
@@ -33,7 +32,7 @@ Simple Telegram bot written in PHP. Can show online players, MOTD and online sta
     ```
     Note: webhook URL must be HTTPS.
 3. Duplicate the `composer.json.preset` file and rename it to composer.json.
-4. Run `composer install`.
+4. Run `composer update` and `composer install`.
 5. Run `php setup.php`.
 6. (Optional) if using expose, change the dev script in `composer.json` to use a subdomain:
 
