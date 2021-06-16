@@ -1,5 +1,7 @@
 # Wereldbot for Telegram
 
+<img alt="Telegram screenshot with all possible bot messages" height="500" align="right" src="https://user-images.githubusercontent.com/25235249/122216544-cf25f480-ceac-11eb-9edb-e2d26a62de44.png">
+
 Simple Telegram bot written in PHP. Can show online players, MOTD and online status of the Dutch Minecraft server, Wereldbouw. You can also subscribe to receive alerts of updates (WIP).
 
 ## Getting Started (for developers)
