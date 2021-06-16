@@ -2,7 +2,7 @@
 
 <img alt="Telegram screenshot with all possible bot messages" height="500" align="right" src="https://user-images.githubusercontent.com/25235249/122216544-cf25f480-ceac-11eb-9edb-e2d26a62de44.png">
 
-Simple Telegram bot written in PHP. Can show online players, MOTD and online status of the Dutch Minecraft server, Wereldbouw. You can also subscribe to receive alerts of updates (WIP).
+Simple Telegram bot written in PHP. Can show online players, MOTD and online status of the Dutch Minecraft server, Wereldbouw.
 
 ## Getting Started (for developers)
 
@@ -47,6 +47,12 @@ Simple Telegram bot written in PHP. Can show online players, MOTD and online sta
 ### Running
 
 If using expose, run `composer run dev` to start the webserver. Otherwise, just make sure that your webhook is reachable on the internet.
+
+## Todo
+
+ - [x] Reimplement install script with PHP
+ - [ ] Subscribe to receive alerts of new blogposts
+ - [ ] Subscribe to receive downtime alerts (impossible?)
 
 ## License
 
